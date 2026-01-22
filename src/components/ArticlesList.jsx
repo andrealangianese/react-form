@@ -36,6 +36,30 @@ function ArticlesList() {
         setNewList(e.target.value)
     }
 
+    //funzione per invio form da richiamare sotto al onSubmit
+
+    const addList = (e) => {
+        e.preventDefault()
+        
+        const aggiornoNewList = {
+            id: (mainArticles.id + 1),
+            title: newList
+        }
+
+        // creo array con le due liste aggiornate con spread operator
+
+        const aggiornoArray = [...list , aggiornoNewList]
+
+        //modifico la var
+
+        setList(aggiornoArray)
+
+        //ripulisco l'input
+
+        setNewList("")
+
+    }
+
     return (
         <div>
             <h1>Ecco i tuoi articoli</h1>
@@ -45,14 +69,17 @@ function ArticlesList() {
                     // devo farmi ritornare una serie di li in base al contenuto della variabile
                     <li key={elementList.id}>
                         {elementList.title}
+                        <button>X</button>
                     </li>
+                    
                 )
                 )}
 
             </ul>
 
             {/* inserisco inpagina il form per aggiungere nuovi titoli */}
-            <form>
+            {/* // sul submit aggiorno array */}
+            <form onSubmit={addList}> 
                 {/* quando aggiungo input è sempre meglio racchiuderli nel form */}
                 <input
                     type="text"
