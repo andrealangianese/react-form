@@ -33,15 +33,25 @@ function ArticlesList() {
             <h1>Ecco i tuoi articoli</h1>
             <ul>
                 {/* vado a gestire il map sulla var di stato che ho creato*/}
-                {list.map((elementList) =>(
+                {list.map((elementList) => (
                     // devo farmi ritornare una serie di li in base al contenuto della variabile
                     <li key={elementList.id}>
                         {elementList.title}
                     </li>
                 )
-            )}
+                )}
 
             </ul>
+
+            {/* inserisco inpagina il form per aggiungere nuovi titoli */}
+            <form>
+                {/* quando aggiungo input è sempre meglio racchiuderli nel form */}
+                <input
+                    type="text"
+                    placeholder="aggiungi un titolo"
+                />
+                <button>pushalo</button>
+            </form>
         </div>
     )
 }
