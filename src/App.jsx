@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Articles from './components/Articles'
+import Articles from './components/ArticlesList'
 
 function App() {
   const [count, setCount] = useState(0)
