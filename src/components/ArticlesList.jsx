@@ -27,6 +27,14 @@ function ArticlesList() {
 
     const [list, setList] = useState(mainArticles);
 
+    //creo seconda var di stato per salvare ciò che l'user scrive
+
+    const [newList, setNewList]= useState();
+
+    //mi serve per aggiornare lo state col valore che scruve l'user
+    const cambioInput = (e) =>{
+        setNewList(e.target.value)
+    }
 
     return (
         <div>
@@ -49,6 +57,10 @@ function ArticlesList() {
                 <input
                     type="text"
                     placeholder="aggiungi un titolo"
+                    // vado a assegnare il nuovo valore ad input
+                    value={newList}
+                    //ogni cambiamento che fa l'utente mi aggiorna lo state
+                    onChange={cambioInput}
                 />
                 <button>pushalo</button>
             </form>
