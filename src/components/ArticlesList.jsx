@@ -60,6 +60,15 @@ function ArticlesList() {
 
     }
 
+    //funzione per eliminare dalla lista
+
+    function deleteArticle(id){
+        // creo una nuova lista escludendo l'articolo con l'id passato
+        const nuovaLista = list.filter((articolo) => articolo.id !== id)
+        // aggiorno lo state con la nuova lista
+        setList(nuovaLista)
+    }
+
     return (
         <div>
             <h1>Ecco i tuoi articoli</h1>
@@ -69,7 +78,7 @@ function ArticlesList() {
                     // devo farmi ritornare una serie di li in base al contenuto della variabile
                     <li key={elementList.id}>
                         {elementList.title}
-                        <button>X</button>
+                        <button onClick={() => deleteArticle(elementList.id)}>X</button>
                     </li>
                     
                 )
